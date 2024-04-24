@@ -7279,7 +7279,7 @@ getPartitionDefs(Archive *fout, TableInfo tblinfo[], int numTables)
 	int			i_parttemplate;
 
 	/* Only relevant for GP5/GP6 */
-	if (fout->remoteVersion > GPDB6_MAJOR_PGVERSION)
+	if (fout->remoteVersion >= GPDB7_MAJOR_PGVERSION)
 		return;
 
 	/*
