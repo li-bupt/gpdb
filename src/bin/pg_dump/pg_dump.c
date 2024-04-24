@@ -6613,7 +6613,7 @@ getTables(Archive *fout, int *numTables)
 						  "am.amname, ");
 	else
 		appendPQExpBufferStr(query,
-						  "NULL AS amname, ");
+						  "CASE WHEN c.relstorage = 'h' THEN 'heap' ELSE NULL END AS amname, ");
 
 	if (fout->remoteVersion >= 90600)
 		appendPQExpBufferStr(query,
